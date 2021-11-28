@@ -1,12 +1,13 @@
 {
   "name": "strapi-plugin-event-bus",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "description": "This is the description of the plugin.",
+	"main": "index.js",
+	"types": "./types",	
   "repository": {
     "type": "git",
     "url": "https://github.com/mmntm/strapi-event-bus"
   },
-	"main": "index.js",
   "strapi": {
     "name": "event-bus",
     "icon": "plug",

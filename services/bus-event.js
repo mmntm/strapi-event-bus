@@ -14,6 +14,9 @@ module.exports = {
 		const { ['busevent']: service } = plugin.services;
 		const { ['busevent']: model } = plugin.models;
 
+		console.log(plugin);
+		console.log(service);
+
 		return {
 			model,
 			service,

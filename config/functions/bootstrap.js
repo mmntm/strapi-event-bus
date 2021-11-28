@@ -29,6 +29,7 @@ module.exports = async () => {
 	 * Register a listener that will save every event
 	 */
 	eventBus.on("**", async (event) => {
+		strapi.log.info("[BUSSY]: received event", event?.name)
 		await strapi.plugins['event-bus'].services['bus-event'].create(event);
 	})
 
