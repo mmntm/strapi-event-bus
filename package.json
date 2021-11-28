@@ -1,13 +1,19 @@
 {
   "name": "@mmntm/strapi-event-bus",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "This is the description of the plugin.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmntm/strapi-event-bus"
+  },
   "strapi": {
     "name": "strapi-event-bus",
     "icon": "plug",
     "description": "Description of strapi-event-bus plugin."
   },
-  "dependencies": {},
+  "dependencies": {
+    "js-event-bus": "^1.1.1"
+  },
   "author": {
     "name": "kvintus",
     "email": "rolik.jakob@mmntm.digital",
@@ -26,4 +32,3 @@
   },
   "license": "MIT"
 }
- 
