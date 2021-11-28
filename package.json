@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-event-bus",
-  "version": "0.3.2",
+  "version": "0.4.2",
   "description": "This is the description of the plugin.",
   "repository": {
     "type": "git",
