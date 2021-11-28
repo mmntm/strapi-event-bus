@@ -4,7 +4,7 @@ import App from './containers/App';
 import Initializer from './containers/Initializer';
 import lifecycles from './lifecycles';
 import trads from './translations';
-export { BaseEvent } from '../../lib/models/Event.model';
+
 
 export default strapi => {
 	const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;

@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/mmntm/strapi-event-bus"
   },
+	"main": "index.js",
   "strapi": {
     "name": "event-bus",
     "icon": "plug",
