@@ -3,6 +3,7 @@ const { BaseEvent } = require('../../lib/models/Event.model');
 
 module.exports = async () => {
 	const eventBus = require('js-event-bus')();
+	strapi.log.info("Loading strapi event bus")
 	strapi.eventBus = eventBus
 
 	/**
@@ -27,7 +28,7 @@ module.exports = async () => {
 	 * Register a listener that will save every event
 	 */
 	eventBus.on("**", async (event) => {
-		await strapi.plugins['strapi-event-bus'].services.event.create(event);
+		await strapi.plugins['event-bus'].services['bus-event'].create(event);
 	})
 
 	// Find the handler registrations for each model and 
@@ -39,8 +40,9 @@ module.exports = async () => {
 			if (handlerRegistration) {
 				handlerRegistration.default(eventBus)
 			}
-		} catch (e) { }
+		} catch (e) {
+		}
 	}
 
-	console.log('Strapi Event Bus loaded !!!');
+	strapi.log.info("Strapi event bus succesfully loaded")
 }

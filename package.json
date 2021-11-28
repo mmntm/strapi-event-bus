@@ -1,18 +1,19 @@
 {
-  "name": "@mmntm/strapi-event-bus",
-  "version": "0.0.6",
+  "name": "strapi-plugin-event-bus",
+  "version": "0.0.12",
   "description": "This is the description of the plugin.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mmntm/strapi-event-bus"
   },
   "strapi": {
-    "name": "strapi-event-bus",
+    "name": "event-bus",
     "icon": "plug",
     "description": "Description of strapi-event-bus plugin."
   },
   "dependencies": {
-    "js-event-bus": "^1.1.1"
+    "js-event-bus": "^1.1.1",
+    "uuid": "^8.3.2"
   },
   "author": {
     "name": "kvintus",

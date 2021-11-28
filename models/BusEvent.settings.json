@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "event-bus-events",
+  "collectionName": "bus-events",
   "info": {
-    "name": "Event",
+    "name": "Bus Event",
     "description": ""
   },
   "options": {

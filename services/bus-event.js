@@ -10,9 +10,10 @@ module.exports = {
 	},
 
 	extractMeta: plugins => {
-		const { ['strapi-event-bus']: plugin } = plugins;
-		const { ['event']: service } = plugin.services;
-		const { ['event']: model } = plugin.models;
+		const { ['event-bus']: plugin } = plugins;
+		const { ['busevent']: service } = plugin.services;
+		const { ['busevent']: model } = plugin.models;
+
 		return {
 			model,
 			service,

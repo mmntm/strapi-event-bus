@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/",
-      "handler": "strapi-event-bus.index",
+      "handler": "event-bus.index",
       "config": {
         "policies": []
       }
