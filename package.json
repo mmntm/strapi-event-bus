@@ -1,0 +1,29 @@
+{
+  "name": "@mmntm/strapi-event-bus",
+  "version": "0.0.0",
+  "description": "This is the description of the plugin.",
+  "strapi": {
+    "name": "strapi-event-bus",
+    "icon": "plug",
+    "description": "Description of strapi-event-bus plugin."
+  },
+  "dependencies": {},
+  "author": {
+    "name": "kvintus",
+    "email": "rolik.jakob@mmntm.digital",
+    "url": "https://momentumdigital.sk"
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
+ 

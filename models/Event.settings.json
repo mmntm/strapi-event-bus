@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "uid": {
+      "type": "uid",
+      "required": true
+    },
+    "payload": {
+      "type": "json",
+      "required": true
+    },
+    "userId": {
+			"type": "string",
+      "required": false
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": [
+        "event",
+        "command"
+      ]
+    },
+    "traceId": {
+      "type": "string"
+    },
+    "emitted": {
+      "type": "datetime"
+    }
+  }
+}
