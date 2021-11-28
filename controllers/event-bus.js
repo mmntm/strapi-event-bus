@@ -7,13 +7,6 @@
  */
 
 module.exports = {
-
-	/**
-	 * Default action.
-	 *
-	 * @return {Object}
-	 */
-
 	index: async (ctx) => {
 		// Add your own logic here.
 
