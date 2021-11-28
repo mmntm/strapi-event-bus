@@ -3,20 +3,21 @@ const { BaseEvent } = require('../../lib/models/Event.model');
 
 module.exports = async () => {
 	const eventBus = require('js-event-bus')();
-	strapi.log.info("Loading strapi event bus")
-	strapi.eventBus = eventBus
+	const mountName = strapi.plugins['event-bus']?.config?.mountName || "bus"
+
+	strapi.jsEventBus = eventBus
 
 	/**
 	 * Create a bus that works with promisees and more importantly whole chain wont fail if the event handler fails
 	 */
-	strapi.bus = {
+	strapi[mountName] = {
 		/**
 		 * @param {BaseEvent} event 
 		 * @returns 
 		 */
 		emit: (event) => new Promise(async (resolve, reject) => {
 			try {
-				await strapi.eventBus.emit(event.name, null, event)
+				await strapi.jsEventBus.emit(event.name, null, event)
 				resolve()
 			} catch (e) {
 				reject(e)
