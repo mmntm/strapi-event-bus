@@ -41,4 +41,6 @@ module.exports = async () => {
 			}
 		} catch (e) { }
 	}
+
+	console.log('Strapi Event Bus loaded !!!');
 }
