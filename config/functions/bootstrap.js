@@ -4,7 +4,6 @@ const { BaseEvent } = require('../../lib/models/Event.model');
 module.exports = async () => {
 	const eventBus = require('js-event-bus')();
 	const mountName = strapi.plugins['event-bus']?.config?.mountName || "bus"
-
 	strapi.jsEventBus = eventBus
 
 	/**
@@ -20,6 +19,7 @@ module.exports = async () => {
 				await strapi.jsEventBus.emit(event.name, null, event)
 				resolve()
 			} catch (e) {
+				console.log(e);
 				reject(e)
 			}
 		})
@@ -29,7 +29,6 @@ module.exports = async () => {
 	 * Register a listener that will save every event
 	 */
 	eventBus.on("**", async (event) => {
-		strapi.log.info("[BUSSY]: received event", event?.name)
 		await strapi.plugins['event-bus'].services['bus-event'].create(event);
 	})
 
@@ -38,13 +37,25 @@ module.exports = async () => {
 	const strapiApiModelNames = Object.keys(strapi.services)
 	for (const modelName of strapiApiModelNames) {
 		try {
-			const handlerRegistration = await import(`../../../../api/${modelName}/event/handlers.js`)
-			if (handlerRegistration) {
-				handlerRegistration.default(eventBus)
+			// Register command handlers
+			const commandHandlerRegistration = await import(`../../../../api/${modelName}/event/handlers/command.handlers.js`)
+			if (commandHandlerRegistration) {
+				commandHandlerRegistration.default(eventBus)
 			}
 		} catch (e) {
+
+		}
+
+		try {
+			// Register event handlers 
+			const eventHandlerRegistration = await import(`../../../../api/${modelName}/event/handlers/event.handlers.js`)
+			if (eventHandlerRegistration) {
+				eventHandlerRegistration.default(eventBus)
+			}
+		} catch (e) {
+
 		}
 	}
 
-	strapi.log.info("Strapi event bus succesfully loaded")
+	strapi.log.info(`Strapi event bus successfully mounted, at: ${mountName}`)
 }
